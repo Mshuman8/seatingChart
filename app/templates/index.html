@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Seating Chart Generator</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="static/style.css">
+    </head>
+    <body class="grey lighten-5">
+        <div class="heading indigo lighten-4">
+            <h1>Let's make a seating chart!</h1>
+            <form method="post" action="/results">
+                <label for="class_list">Enter your class list with each student separated with commas.</label>
+                <input type="text" name="class_list"/>
+                <input type="submit" value="Submit"/>
+            </form>
+        </div>
+        <div class="container">
+            <div class="row">
+                {% for table in stud_groups %}
+                    <div class="col flex">
+                        <p class="table">{{table}}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
